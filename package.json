@@ -1,0 +1,44 @@
+{
+  "name": "lazy-commit",
+  "version": "0.1.0",
+  "description": "AI-powered Git commit message generator CLI tool",
+  "main": "dist/cli.js",
+  "bin": {
+    "lazy-commit": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "tsup src/cli.ts --format cjs --target node20",
+    "start": "node dist/cli.js",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --fix"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "cli",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "conf": "^13.0.1",
+    "inquirer": "^9.2.15",
+    "ora": "^8.0.1",
+    "cli-progress": "^3.12.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.30",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
