@@ -81,7 +81,7 @@ function showHelp() {
 
 // 设置命令行参数
 program
-  .name("lazy-commit")
+  .name("lcm")
   .description("AI-powered Git commit message generator")
   .version(showVersion(), "-v, --version", "显示版本信息")
   .option("-h, --help", "显示帮助信息")
