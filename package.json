@@ -10,6 +10,7 @@
     "dev": "tsx src/cli.ts",
     "build": "tsup src/cli.ts --format cjs --target node20",
     "start": "node dist/cli.js",
+    "format": "biome format src --write",
     "lint": "biome check .",
     "lint:fix": "biome check . --fix"
   },
@@ -31,7 +32,7 @@
     "cli-progress": "^3.12.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.4",
+    "@biomejs/biome": "^2.0.0",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.11.30",
     "tsup": "^8.0.2",
