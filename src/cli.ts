@@ -4,6 +4,7 @@ import chalk from "chalk";
 import { Command } from "commander";
 import inquirer from "inquirer";
 import { showGitDiff } from "./commands/diff";
+import { helpPlaceholder } from "./utils/showHelp";
 import { showVersion } from "./utils/version";
 import { showWelcome } from "./utils/welcome";
 
@@ -18,7 +19,7 @@ async function main() {
       value: "diff",
     },
     {
-      name: "⚙️ 配置设置",
+      name: "⚙️  配置设置",
       value: "config",
     },
     {
@@ -45,49 +46,39 @@ async function main() {
       await showGitDiff();
       break;
     case "config":
+      console.log();
       console.log(chalk.yellow("⚙️ 配置功能即将推出..."));
       break;
     case "help":
-      showHelp();
+      console.log();
+      console.log(chalk.blue(helpPlaceholder));
       break;
     case "exit":
+      console.log();
       console.log(chalk.green("👋 再见!"));
       process.exit(0);
       break;
     default:
+      console.log();
       console.log(chalk.red("❌ 未知操作"));
   }
-}
-
-function showHelp() {
-  console.log(
-    chalk.blue(`
-📖 Lazy Commit 帮助信息
-
-可用命令:
-  lazy-commit          启动交互模式
-  lazy-commit --version 显示版本信息
-  lazy-commit --help   显示帮助信息
-
-功能说明:
-  • 查看 Git Diff - 显示当前未提交的改动
-  • 配置设置 - 设置 AI API 等配置项 (即将推出)
-  • 自动生成提交信息 - 基于改动生成语义化提交信息 (即将推出)
-
-更多信息请访问: https://github.com/your-username/lazy-commit
-`),
-  );
 }
 
 // 设置命令行参数
 program
   .name("lcm")
-  .description("AI-powered Git commit message generator")
+  .description(
+    "🛸 Git 提交信息生成工具 - AI-powered Git commit message generator",
+  )
   .version(showVersion(), "-v, --version", "显示版本信息")
-  .option("-h, --help", "显示帮助信息")
+  .helpOption("-h, --help", "显示帮助信息")
   .action(main);
 
-// 自定义帮助命令
-program.on("--help", showHelp);
+// 覆盖默认的帮助信息
+program.configureHelp({
+  formatHelp: () => {
+    return chalk.blue(helpPlaceholder);
+  },
+});
 
 program.parse();

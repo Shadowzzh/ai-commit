@@ -16,10 +16,9 @@ export function showWelcome() {
   });
 
   console.log(chalk.cyan(logo));
-  console.log(chalk.cyan.bold(`                                v${version}`));
   console.log();
 
-  console.log(chalk.yellow("🚀 AI 驱动的 Git 提交信息生成工具"));
+  console.log(chalk.cyan.bold(`🛸 Git 提交信息生成工具 v${version}`));
   console.log();
 
   console.log(
