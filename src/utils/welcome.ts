@@ -6,9 +6,13 @@ export function showWelcome() {
   const version = showVersion();
 
   const logo = figlet.textSync("Lazy Commit", {
-    font: "ANSI Shadow",
+    width: 80,
+    font: "3D-ASCII",
+    // font: "Ghost",
+
     horizontalLayout: "default",
     verticalLayout: "default",
+    whitespaceBreak: true,
   });
 
   console.log(chalk.cyan(logo));
