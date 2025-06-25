@@ -1,6 +1,6 @@
 {
   "name": "lazy-commit",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "AI-powered Git commit message generator CLI tool",
   "main": "dist/cli.js",
   "bin": {
@@ -32,7 +32,8 @@
     "conf": "^13.0.1",
     "figlet": "^1.8.1",
     "inquirer": "^9.2.15",
-    "ora": "^8.0.1"
+    "ora": "^8.0.1",
+    "undici": "^7.10.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.0",
