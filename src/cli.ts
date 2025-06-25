@@ -3,6 +3,7 @@
 import chalk from "chalk";
 import { Command } from "commander";
 import inquirer from "inquirer";
+import { showConfigMenu } from "./commands/config";
 import { showGitDiff } from "./commands/diff";
 import { helpPlaceholder } from "./utils/showHelp";
 import { showVersion } from "./utils/version";
@@ -46,8 +47,7 @@ async function main() {
       await showGitDiff();
       break;
     case "config":
-      console.log();
-      console.log(chalk.yellow("⚙️ 配置功能即将推出..."));
+      await showConfigMenu();
       break;
     case "help":
       console.log();
