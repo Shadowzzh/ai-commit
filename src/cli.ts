@@ -92,7 +92,24 @@ program
   )
   .version(showVersion(), "-v, --version", "显示版本信息")
   .helpOption("-h, --help", "显示帮助信息")
-  .action(main);
+  .option("-m, --menu", "显示交互菜单")
+  .option("-c, --config", "打开配置菜单")
+  .option("-d, --diff", "查看 Git Diff")
+  .option("-t, --test", "测试 Gemini API 连接")
+  .action(async (options) => {
+    if (options.menu) {
+      await main();
+    } else if (options.config) {
+      await showConfigMenu();
+    } else if (options.diff) {
+      await showGitDiff();
+    } else if (options.test) {
+      await testGeminiConnection();
+    } else {
+      // 默认直接生成 commit message
+      await generateCommitMessage();
+    }
+  });
 
 // 覆盖默认的帮助信息
 program.configureHelp({

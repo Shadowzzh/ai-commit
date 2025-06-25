@@ -3,6 +3,7 @@ import chalk from "chalk";
 import inquirer from "inquirer";
 import ora from "ora";
 import { geminiService } from "../ai/gemini";
+import { configManager } from "../config";
 import { getGitDiff, getGitStatus, isGitRepository } from "../git/operations";
 
 /**
@@ -47,7 +48,11 @@ export async function generateCommitMessage() {
     spinner.text = "生成 commit message...";
 
     // 生成 commit message
-    const commitMessage = await geminiService.generateCommitMessage(diff);
+    const customPrompt = configManager.getCustomPrompt();
+    const commitMessage = await geminiService.generateCommitMessage(
+      diff,
+      customPrompt,
+    );
 
     spinner.succeed(chalk.green("✅ Commit message 生成完成"));
 
