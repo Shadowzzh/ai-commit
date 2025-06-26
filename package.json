@@ -1,6 +1,6 @@
 {
   "name": "lazy-commit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "AI-powered Git commit message generator CLI tool",
   "main": "dist/cli.js",
   "bin": {
@@ -12,7 +12,12 @@
     "start": "node dist/cli.js",
     "format": "biome format src --write",
     "lint": "biome check .",
-    "lint:fix": "biome check . --fix"
+    "lint:fix": "biome check . --fix",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "version:patch": "standard-version --release-as patch",
+    "version:minor": "standard-version --release-as minor",
+    "version:major": "standard-version --release-as major",
+    "version": "standard-version"
   },
   "keywords": [
     "git",

@@ -1,9 +1,18 @@
 # Changelog
 
-所有对该项目的重要更改都将记录在此文件中。
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
-并且该项目遵循 [语义化版本控制](https://semver.org/lang/zh-CN/)。
+### 0.3.1 (2025-06-26)
+
+
+### Features
+
+* **cli:** 优化命令行工具并新增配置管理 603474e
+* 使用 Gemini 实现 AI 提交信息生成 4e82697
+* 实现基础 Lazy Commit CLI v0.1.0 fdccf17
+* 更新欢迎信息，使用 figlet 显示项目名称 93399a1
+* 更新欢迎信息的字体样式 f19f8ac
+* 添加帮助信息功能并优化 CLI 输出 904d1e0
 
 ## [0.1.0] - 2024-06-24
 
