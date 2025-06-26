@@ -37,25 +37,30 @@ export class GeminiService {
 
     try {
       const model = this.client.getGenerativeModel({
-        model: "gemini-1.5-flash",
+        // model: "gemini-1.5-flash",
+        model: "gemini-2.0-flash",
       });
 
-      const defaultPrompt = `# 角色
+      const defaultPrompt = `
+# 角色
 你是一位严谨的版本控制专家，熟练掌握 Conventional Commits v1.0.0。
 
-# 任务
-阅读下方 Git diff，仅输出一条 **feat** 类型的 commit message：
-- **第一行**：\`feat(<scope>): <一句话描述，祈使句，≤ 72 字符>\`
-- **随后多行**：每行以 \`- \` 开头，列出本次迭代的重要改动点（可多行）
+- 仅根据 <<DIFF>> 内的 **实际代码行**（以 + / - 开头）生成 commit message。
+- **禁止捏造** diff 中不存在的功能、文件或改动。
+- 类型暂固定为 feat；如果 diff 中只有注释或文档改动，也请如实描述其内容。
+- 输出格式必须严格如下（勿包含多余内容）：
+- 使用中文语言
 
-# 输入${diff}
-
-# 输出格式（必须完全符合）
-feat(<scope>): <总体概述 | 祈使句>
+feat(<scope>): <一句话描述，祈使句，≤ 72 字符>
 
 - <改动点 1>
 - <改动点 2>
 - <改动点 3>
+
+## DIFF
+<<DIFF>>
+${diff}
+<<END>>
 `;
 
       const prompt = customPrompt
