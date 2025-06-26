@@ -1,6 +1,6 @@
 {
   "name": "@zhangziheng/lazy-commit",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "基于 AI 的智能 Git 提交信息生成器。",
   "main": "dist/cli.js",
   "bin": {
@@ -79,6 +79,7 @@
     "@types/figlet": "^1.7.0",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.11.30",
+    "conventional-changelog-cli": "^5.0.0",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3"
