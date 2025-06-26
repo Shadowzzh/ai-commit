@@ -1,11 +1,18 @@
 {
-  "name": "lazy-commit",
+  "name": "@zhangziheng/lazy-commit",
   "version": "0.3.1",
-  "description": "AI-powered Git commit message generator CLI tool",
+  "description": "基于 AI 的智能 Git 提交信息生成器。",
   "main": "dist/cli.js",
   "bin": {
+    "lcm": "./dist/cli.js",
     "lazy-commit": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "tsx src/cli.ts",
     "build": "tsup src/cli.ts --format cjs --target node20",
@@ -17,17 +24,44 @@
     "version:patch": "standard-version --release-as patch",
     "version:minor": "standard-version --release-as minor",
     "version:major": "standard-version --release-as major",
-    "version": "standard-version"
+    "version": "standard-version",
+    "prepublishOnly": "pnpm build",
+    "test": "echo \"暂无测试\" && exit 0"
   },
   "keywords": [
     "git",
     "commit",
+    "commit-message",
+    "conventional-commits",
     "ai",
+    "artificial-intelligence",
+    "gemini",
+    "google-ai",
     "cli",
-    "automation"
+    "command-line",
+    "automation",
+    "development-tools",
+    "typescript",
+    "nodejs",
+    "git-hooks",
+    "code-quality",
+    "semantic-release",
+    "developer-tools"
   ],
-  "author": "",
+  "author": {
+    "name": "Zhang Ziheng",
+    "email": "your-email@example.com",
+    "url": "https://github.com/zhangziheng"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/Shadowzzh/ai-commit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadowzzh/ai-commit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shadowzzh/ai-commit/issues"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "ai": "^4.3.16",
