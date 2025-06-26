@@ -1,8 +1,8 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { configManager } from "../config";
 
 export class GeminiService {
-  private client: GoogleGenerativeAI | null = null;
+  private client: GoogleGenAI | null = null;
 
   constructor() {
     this.initializeClient();
@@ -11,7 +11,7 @@ export class GeminiService {
   private initializeClient(): void {
     const apiKey = configManager.getGeminiApiKey();
     if (apiKey) {
-      this.client = new GoogleGenerativeAI(apiKey);
+      this.client = new GoogleGenAI({ apiKey });
     }
   }
 
@@ -36,11 +36,6 @@ export class GeminiService {
     }
 
     try {
-      const model = this.client.getGenerativeModel({
-        // model: "gemini-1.5-flash",
-        model: "gemini-2.0-flash",
-      });
-
       const defaultPrompt = `
 # 角色
 你是一位严谨的版本控制专家，熟练掌握 Conventional Commits v1.0.0。
@@ -67,9 +62,11 @@ ${diff}
         ? customPrompt.replace("{{diff}}", diff)
         : defaultPrompt;
 
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await this.client.models.generateContent({
+        model: "gemini-2.0-flash",
+        contents: prompt,
+      });
+      const text = result.text;
 
       if (!text) {
         throw new Error("生成的提交信息为空");
