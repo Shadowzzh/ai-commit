@@ -1,7 +1,8 @@
 {
   "name": "@zhangziheng/lazy-commit",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "基于 AI 的智能 Git 提交信息生成器。",
+  "type": "module",
   "main": "dist/cli.js",
   "bin": {
     "lcm": "./dist/cli.js",
@@ -15,11 +16,12 @@
   ],
   "scripts": {
     "dev": "tsx src/cli.ts",
-    "build": "tsup src/cli.ts --format cjs --target node20",
+    "build": "tsup src/cli.ts --format esm --target node20",
     "start": "node dist/cli.js",
     "format": "biome format src --write",
     "lint": "biome check .",
     "lint:fix": "biome check . --fix",
+    "publish": "npm publish --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "version:patch": "standard-version --release-as patch",
     "version:minor": "standard-version --release-as minor",
