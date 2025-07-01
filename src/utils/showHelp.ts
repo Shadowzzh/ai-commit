@@ -25,5 +25,5 @@ export const helpPlaceholder = `
   lcm -d            # 查看代码变更
   lcm -t            # 测试 API 连接
 
-更多信息: https://github.com/your-username/ai-commit
+更多信息: https://github.com/Shadowzzh/ai-commit
 `;
