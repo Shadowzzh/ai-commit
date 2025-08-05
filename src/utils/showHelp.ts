@@ -11,6 +11,7 @@ export const helpPlaceholder = `
   -c, --config    打开配置菜单
   -d, --diff      查看 Git Diff
   -t, --test      测试 Gemini API 连接
+  -e, --english   生成英文 commit message
 
 功能说明:
   • 🚀 AI 提交信息生成 - 基于 Git 变更自动生成符合规范的提交信息
@@ -20,6 +21,7 @@ export const helpPlaceholder = `
 
 使用方式:
   lcm               # 直接生成 commit message
+  lcm -e            # 生成英文 commit message
   lcm -m            # 显示交互菜单
   lcm -c            # 快速打开配置
   lcm -d            # 查看代码变更

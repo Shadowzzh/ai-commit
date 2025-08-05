@@ -96,6 +96,7 @@ program
   .option("-c, --config", "打开配置菜单")
   .option("-d, --diff", "查看 Git Diff")
   .option("-t, --test", "测试 Gemini API 连接")
+  .option("-e, --english", "生成英文 commit message")
   .action(async (options) => {
     if (options.menu) {
       await main();
@@ -107,7 +108,7 @@ program
       await testGeminiConnection();
     } else {
       // 默认直接生成 commit message
-      await generateCommitMessage();
+      await generateCommitMessage(options.english);
     }
   });
 

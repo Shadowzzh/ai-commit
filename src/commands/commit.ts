@@ -8,9 +8,10 @@ import { getGitDiff, getGitStatus, isGitRepository } from "../git/operations";
 
 /**
  * 生成 commit 信息
+ * @param useEnglish 是否使用英文输出
  * @returns
  */
-export async function generateCommitMessage() {
+export async function generateCommitMessage(useEnglish?: boolean) {
   const spinner = ora("检查 Git 仓库状态...").start();
 
   try {
@@ -52,6 +53,7 @@ export async function generateCommitMessage() {
     const commitMessage = await geminiService.generateCommitMessage(
       diff,
       customPrompt,
+      useEnglish,
     );
 
     spinner.succeed(chalk.green("✅ Commit message 生成完成"));
@@ -97,7 +99,7 @@ export async function generateCommitMessage() {
         await commitChanges(commitMessage, useStaged);
         break;
       case "regenerate":
-        await generateCommitMessage();
+        await generateCommitMessage(useEnglish);
         break;
       case "back":
         return;

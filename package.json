@@ -1,6 +1,6 @@
 {
   "name": "@zhangziheng/lazy-commit",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "基于 AI 的智能 Git 提交信息生成器。",
   "type": "module",
   "main": "dist/cli.js",
